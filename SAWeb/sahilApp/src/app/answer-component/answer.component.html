@@ -1,0 +1,28 @@
+<div class="content">
+    <ng-container *ngIf="mode === 'edit'">
+      <form [formGroup]="myFormGroup">
+        <ng-container class="the--form">
+          <div class="name--input">
+            <label>
+              Name :
+            </label>
+            <input id="name" type="text" formControlName="name">
+          </div>
+          <button id="saveButton" type="submit" (click)="onSubmit()">Save</button>
+        </ng-container>
+        <ng-container class="the--form">
+            <div class="name--input">
+              <label>
+                Signature :
+              </label>
+              <app-signature-pad></app-signature-pad>
+            </div>
+          </ng-container>
+
+      </form>
+    </ng-container>
+    <ng-container *ngIf="mode === 'view'">
+      <app-view-mode [answers]="answers"></app-view-mode>
+      <button id="editButton" type="button" (click)="onEdit()">Edit Again</button>
+    </ng-container>
+  </div>
